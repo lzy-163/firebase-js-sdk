@@ -30,3 +30,4 @@ jobs:
         add: 'common/api-review/*'
         message: 'Update API reports'
         default_author: github_actor
+        push: true
