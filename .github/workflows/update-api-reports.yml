@@ -11,8 +11,9 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@master
       with:
-        # checkout HEAD commit instead of merge commit
-        ref: ${{ github.event.pull_request.head.sha }}
+        # Checkout the pull request branch instead of the merge commit
+        ref: ${{ github.event.pull_request.head.ref }}
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
         token: ${{ secrets.OSS_BOT_GITHUB_TOKEN }}
     - name: Set up Node (14)
       uses: actions/setup-node@v2
