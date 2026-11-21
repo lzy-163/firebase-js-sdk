@@ -9,13 +9,13 @@ jobs:
 
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@master
+      uses: actions/checkout@v3
       with:
         # checkout HEAD commit instead of merge commit
         ref: ${{ github.event.pull_request.head.sha }}
         token: ${{ secrets.OSS_BOT_GITHUB_TOKEN }}
     - name: Set up Node (14)
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: 14.x
     - name: Yarn install
