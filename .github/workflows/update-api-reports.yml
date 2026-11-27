@@ -2,6 +2,9 @@ name: Update API reports
 
 on: pull_request
 
+permissions:
+  contents: write
+
 jobs:
   update_api_reports:
     name: Update API reports
@@ -13,7 +16,7 @@ jobs:
       with:
         # checkout HEAD commit instead of merge commit
         ref: ${{ github.event.pull_request.head.sha }}
-        token: ${{ secrets.OSS_BOT_GITHUB_TOKEN }}
+        token: ${{ secrets.OSS_BOT_GITHUB_TOKEN || github.token }}
     - name: Set up Node (14)
       uses: actions/setup-node@v2
       with:
